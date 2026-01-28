@@ -26,8 +26,6 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 
-.env
-
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
@@ -37,3 +35,15 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### 환경변수 ###
+.env
+
+### DCL 파일 ###
+init/*_dcl.sql
+
+### Docker volumes (데이터) ###
+init/data/
+
+### 프로필 ###
+application-local.yml
