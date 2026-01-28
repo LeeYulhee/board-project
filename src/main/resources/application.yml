@@ -26,7 +26,7 @@ mybatis:
 
 # JWT 공통 설정
 jwt:
-  access-token-validity: 3600000      # 1시간 (ms)
+  access-token-validity: 900000      # 15분 (ms)
   refresh-token-validity: 604800000   # 7일 (ms)
 
 # 로깅 기본 패턴

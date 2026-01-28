@@ -2,16 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.example.board.domain.post.repository.PostMapper">
+<mapper namespace="com.example.boardproject.domain.post.repository.PostMapper">
 
-    <resultMap id="PostWithAuthor" type="com.example.board.domain.post.entity.Post">
+    <resultMap id="PostWithAuthor" type="com.example.boardproject.domain.post.entity.Post">
         <id property="postId" column="post_id"/>
         <result property="title" column="title"/>
         <result property="content" column="content"/>
         <result property="userId" column="user_id"/>
         <result property="createdAt" column="created_at"/>
         <result property="updatedAt" column="updated_at"/>
-        <association property="user" javaType="com.example.board.domain.user.entity.User">
+        <association property="user" javaType="com.example.boardproject.domain.user.entity.User">
             <id property="userId" column="user_id"/>
             <result property="loginId" column="login_id"/>
             <result property="nickname" column="nickname"/>
