@@ -18,12 +18,10 @@ public enum ErrorCode {
     // Auth
     INVALID_TOKEN(401, "UNAUTHORIZED", "유효하지 않은 토큰입니다"),
     EXPIRED_TOKEN(401, "UNAUTHORIZED", "만료된 토큰입니다"),
-    INVALID_REFRESH_TOKEN(401, "UNAUTHORIZED", "유효하지 않은 리프레시 토큰입니다"),
-    EXPIRED_REFRESH_TOKEN(401, "UNAUTHORIZED", "만료된 리프레시 토큰입니다"),
     INVALID_CREDENTIALS(401, "UNAUTHORIZED", "아이디 또는 비밀번호가 일치하지 않습니다"),
 
     // User
-    DUPLICATE_LOGIN_ID(409, "DUPLICATE", "이미 사용 중인 아이디입니다"),
+    DUPLICATE_LOGIN_ID(409, "DUPLICATE_LOGIN_ID", "이미 사용 중인 아이디입니다"),
     USER_NOT_FOUND(404, "NOT_FOUND", "사용자를 찾을 수 없습니다"),
 
     // Post

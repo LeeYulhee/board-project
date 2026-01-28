@@ -62,20 +62,4 @@ public class AuthService {
 
         return TokenResponse.of(tokenPair.accessToken(), tokenPair.refreshToken());
     }
-
-    /**
-     * 로그아웃
-     */
-    @Transactional
-    public void logout(UUID userId) {
-        tokenService.deleteRefreshToken(userId);
-    }
-
-    /**
-     * 토큰 재발급
-     */
-    public TokenResponse refresh(String refreshToken) {
-        String newAccessToken = tokenService.refreshAccessToken(refreshToken);
-        return TokenResponse.of(newAccessToken, refreshToken);
-    }
 }

@@ -1,5 +1,6 @@
-package com.example.boardproject.global.security;
+package com.example.boardproject.global.config;
 
+import com.example.boardproject.global.security.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -32,7 +33,7 @@ public class SecurityConfig {
                 // 권한 설정
                 .authorizeHttpRequests(auth -> auth
                         // 인증 없이 접근 가능
-                        .requestMatchers("/auth/signup", "/auth/login").permitAll()
+                        .requestMatchers("/auth/signup", "/auth/login", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
                         // 나머지는 인증 필요
                         .anyRequest().authenticated())
 

@@ -1,5 +1,6 @@
 package com.example.boardproject.global.exception;
 
+import com.example.boardproject.global.common.response.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;

@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Mapper
 public interface PostMapper {
@@ -23,5 +24,5 @@ public interface PostMapper {
     /**
      * 게시글 상세 조회 (작성자 정보 포함)
      */
-    Optional<Post> findByIdWithAuthor(Long postId);
+    Optional<Post> findByIdWithAuthor(UUID postId);
 }

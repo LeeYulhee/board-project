@@ -10,7 +10,7 @@ import com.example.boardproject.domain.post.repository.PostMapper;
 import com.example.boardproject.domain.post.repository.PostRepository;
 import com.example.boardproject.domain.user.entity.User;
 import com.example.boardproject.domain.user.service.UserService;
-import com.example.boardproject.global.common.PageResponse;
+import com.example.boardproject.global.common.response.PageResponse;
 import com.example.boardproject.global.exception.CustomException;
 import com.example.boardproject.global.exception.ErrorCode;
 import lombok.RequiredArgsConstructor;
@@ -52,7 +52,7 @@ public class PostService {
     /**
      * 게시글 상세 조회
      */
-    public PostResponse getPost(Long postId) {
+    public PostResponse getPost(UUID postId) {
         Post post = postMapper.findByIdWithAuthor(postId)
                 .orElseThrow(() -> new CustomException(ErrorCode.POST_NOT_FOUND));
 

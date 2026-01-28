@@ -1,4 +1,4 @@
-package com.example.boardproject.global.typehandler;
+package com.example.boardproject.global.common.typehandler;
 
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
