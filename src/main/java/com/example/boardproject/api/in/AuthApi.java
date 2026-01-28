@@ -25,7 +25,7 @@ public interface AuthApi {
                     content = @Content(schema = @Schema(implementation = SignupResponse.class))),
             @ApiResponse(responseCode = "400", description = "잘못된 요청 (유효성 검증 실패)",
                     content = @Content(schema = @Schema(implementation = ErrorResponse.class))),
-            @ApiResponse(responseCode = "409", description = "이미 존재하는 이메일",
+            @ApiResponse(responseCode = "409", description = "이미 존재하는 아이디",
                     content = @Content(schema = @Schema(implementation = ErrorResponse.class)))
     })
     ResponseEntity<SuccessResponse<SignupResponse>> signup(
@@ -35,7 +35,7 @@ public interface AuthApi {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "로그인 성공",
                     content = @Content(schema = @Schema(implementation = TokenResponse.class))),
-            @ApiResponse(responseCode = "400", description = "잘못된 요청 (유효성 검증 실패)",
+            @ApiResponse(responseCode = "404", description = "사용자가 존재하지 않음",
                     content = @Content(schema = @Schema(implementation = ErrorResponse.class))),
             @ApiResponse(responseCode = "401", description = "인증 실패 (이메일 또는 비밀번호 불일치)",
                     content = @Content(schema = @Schema(implementation = ErrorResponse.class)))

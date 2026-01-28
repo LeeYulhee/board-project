@@ -29,9 +29,7 @@ public interface PostApi {
     @Operation(summary = "게시글 목록 조회", description = "페이징과 정렬 옵션을 적용하여 게시글 목록을 조회합니다.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "조회 성공",
-                    content = @Content(schema = @Schema(implementation = PageResponse.class))),
-            @ApiResponse(responseCode = "400", description = "잘못된 요청 (파라미터 오류)",
-                    content = @Content(schema = @Schema(implementation = ErrorResponse.class)))
+                    content = @Content(schema = @Schema(implementation = PageResponse.class)))
     })
     ResponseEntity<SuccessResponse<PageResponse<PostListResponse>>> getPostList(
             @Parameter(description = "페이지 번호 (0부터 시작)", example = "0")
@@ -57,8 +55,6 @@ public interface PostApi {
             @ApiResponse(responseCode = "200", description = "작성 성공",
                     content = @Content(schema = @Schema(implementation = PostResponse.class))),
             @ApiResponse(responseCode = "400", description = "잘못된 요청 (유효성 검증 실패)",
-                    content = @Content(schema = @Schema(implementation = ErrorResponse.class))),
-            @ApiResponse(responseCode = "401", description = "인증되지 않은 사용자",
                     content = @Content(schema = @Schema(implementation = ErrorResponse.class)))
     })
     ResponseEntity<SuccessResponse<PostResponse>> createPost(
@@ -70,8 +66,6 @@ public interface PostApi {
             @ApiResponse(responseCode = "200", description = "수정 성공",
                     content = @Content(schema = @Schema(implementation = PostResponse.class))),
             @ApiResponse(responseCode = "400", description = "잘못된 요청 (유효성 검증 실패)",
-                    content = @Content(schema = @Schema(implementation = ErrorResponse.class))),
-            @ApiResponse(responseCode = "401", description = "인증되지 않은 사용자",
                     content = @Content(schema = @Schema(implementation = ErrorResponse.class))),
             @ApiResponse(responseCode = "403", description = "권한 없음 (작성자가 아님)",
                     content = @Content(schema = @Schema(implementation = ErrorResponse.class))),
@@ -88,8 +82,6 @@ public interface PostApi {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "삭제 성공",
                     content = @Content(schema = @Schema(implementation = SuccessResponse.class))),
-            @ApiResponse(responseCode = "401", description = "인증되지 않은 사용자",
-                    content = @Content(schema = @Schema(implementation = ErrorResponse.class))),
             @ApiResponse(responseCode = "403", description = "권한 없음 (작성자가 아님)",
                     content = @Content(schema = @Schema(implementation = ErrorResponse.class))),
             @ApiResponse(responseCode = "404", description = "게시글을 찾을 수 없음",
