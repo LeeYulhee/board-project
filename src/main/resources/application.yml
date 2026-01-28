@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: board-project
+  profiles:
+    default: local
+
+  # JPA 공통 설정
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 100
+
+  # Jackson 공통 설정
+  jackson:
+    time-zone: Asia/Seoul
+    default-property-inclusion: non_null
+
+# MyBatis 공통 설정
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
+  type-aliases-package: com.example.board.domain.**.entity
+  configuration:
+    map-underscore-to-camel-case: true
+
+# JWT 공통 설정
+jwt:
+  access-token-validity: 900000      # 15분 (ms)
+  refresh-token-validity: 604800000   # 7일 (ms)
+
+# 로깅 기본 패턴
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+  level:
+    root: INFO
