@@ -13,6 +13,7 @@ services:
       MYSQL_USER: ${MARIADB_USERNAME}
       MYSQL_PASSWORD: ${MARIADB_PASSWORD}
       TZ: Asia/Seoul
+    restart: unless-stopped
     ports:
       - "3306:3306"
     volumes:
@@ -37,6 +38,7 @@ services:
     volumes:
       - redis_data:/data
     command: redis-server --appendonly yes
+    restart: unless-stopped
     networks:
       - board-project-network
     healthcheck:
