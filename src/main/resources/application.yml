@@ -7,9 +7,10 @@ spring:
   # JPA 공통 설정
   jpa:
     open-in-view: false
+    show-sql: false
     properties:
       hibernate:
-        format_sql: true
+        format_sql: false
         default_batch_fetch_size: 100
 
   # Jackson 공통 설정
@@ -20,7 +21,8 @@ spring:
 # MyBatis 공통 설정
 mybatis:
   mapper-locations: classpath:mapper/**/*.xml
-  type-aliases-package: com.example.board.domain.**.entity
+  type-aliases-package: com.example.boardproject.domain.**.entity
+  type-handlers-package: com.example.boardproject.global.common.typehandler
   configuration:
     map-underscore-to-camel-case: true
 
@@ -35,3 +37,4 @@ logging:
     console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
   level:
     root: INFO
+    com.example.boardproject.domain: DEBUG
