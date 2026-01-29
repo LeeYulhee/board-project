@@ -2,14 +2,17 @@ package com.example.boardproject.global.exception;
 
 import com.example.boardproject.global.common.response.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 @Slf4j
 @RestControllerAdvice
@@ -27,6 +30,30 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity
                 .status(errorCode.getStatus())
+                .body(response);
+    }
+
+    /**
+     * Id 타입 변환 실패 처리 (예: UUID 변환 실패)
+     * */
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+    public ResponseEntity<ErrorResponse> handleMethodArgumentTypeMismatch(MethodArgumentTypeMismatchException ex) {
+        ErrorResponse response;
+
+        // UUID 타입 변환 실패인지 확인
+        if (ex.getRequiredType() != null && ex.getRequiredType().equals(UUID.class)) {
+            ErrorCode errorCode = ErrorCode.POST_NOT_FOUND;
+            response = ErrorResponse.of(errorCode);
+
+            return ResponseEntity
+                    .status(errorCode.getStatus())
+                    .body(response);
+        }
+
+        response = ErrorResponse.of(ErrorCode.BAD_REQUEST);
+
+        return ResponseEntity
+                .badRequest()
                 .body(response);
     }
 
