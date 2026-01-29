@@ -9,6 +9,7 @@ public enum ErrorCode {
 
     // Common Errors(공통)
     INVALID_INPUT(400, "INVALID_INPUT", "입력값이 유효하지 않습니다"),
+    BAD_REQUEST(400, "BAD_REQUEST", "잘못된 요청입니다"),
     UNAUTHORIZED(401, "UNAUTHORIZED", "인증이 필요합니다"),
     FORBIDDEN(403, "FORBIDDEN", "권한이 없습니다"),
     NOT_FOUND(404, "NOT_FOUND", "리소스를 찾을 수 없습니다"),
